@@ -1,11 +1,10 @@
 from sqlalchemy import Column, Integer, Date, Time, ForeignKey, DateTime
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
+from app.models.base import Base
 from app.models.event import Event
-from app.models.event_recurrence import EventRecurrence
 
-Base = declarative_base()
+
 
 class EventDate(Base):
     __tablename__ = 'event_date'
@@ -21,7 +20,7 @@ class EventDate(Base):
     # Relations
     event = relationship(Event, back_populates="dates")
     recurrences = relationship(
-        EventRecurrence,
+        "EventRecurrence",
         back_populates="event_date",
         cascade="all, delete-orphan"
     )

@@ -1,9 +1,8 @@
 from sqlalchemy import Column, Integer, String, DateTime, func, ForeignKey, ForeignKeyConstraint
-from sqlalchemy.ext.declarative import declarative_base
+from app.models.base import Base
 from sqlalchemy.orm import relationship
 from app.models.event import Event
 
-Base = declarative_base()
 
 class Image(Base):
     __tablename__ = 'images'

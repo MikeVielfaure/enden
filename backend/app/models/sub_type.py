@@ -1,11 +1,10 @@
 from sqlalchemy import Column, Integer, String, DateTime, func
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, ForeignKeyConstraint
 from app.models.type import Type
+from app.models.base import Base
 
 
-Base = declarative_base()
 
 
 class SubType(Base):

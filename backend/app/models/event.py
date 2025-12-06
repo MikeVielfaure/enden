@@ -1,10 +1,9 @@
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, ForeignKeyConstraint
 from sqlalchemy.sql import func
-from sqlalchemy.ext.declarative import declarative_base
+from app.models.base import Base
 from sqlalchemy.orm import relationship
 from app.models.sub_type import SubType
 
-Base = declarative_base()
 
 class Event(Base):
     __tablename__ = 'events'

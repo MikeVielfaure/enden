@@ -5,13 +5,16 @@ from sqlalchemy import pool, MetaData
 
 from alembic import context
 
-from app.models.user import Base as UserBase
-from app.models.event import Base as EventBase
-from app.models.image import Base as ImageBase
-from app.models.type import Base as TypeBase  # Changez 'myproject.models' avec le chemin réel vers vos modèles
+from app.models.base import Base
+from app.models.user import User
+from app.models.event import Event
+from app.models.image import Image
+from app.models.type import Type
+from app.models.sub_type import SubType
+from app.models.event_date import EventDate
+from app.models.event_recurrence import EventRecurrence
 
-# Ceci est l'objet MetaData de votre base de données
-target_metadata = [TypeBase.metadata, EventBase.metadata, ImageBase.metadata, UserBase.metadata]
+target_metadata = Base.metadata
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config

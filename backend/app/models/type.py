@@ -1,10 +1,8 @@
 from sqlalchemy import Column, Integer, String, DateTime, func
-from sqlalchemy.ext.declarative import declarative_base
+from app.models.base import Base
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, ForeignKeyConstraint
 
-
-Base = declarative_base()
 
 class Type(Base):
     __tablename__ = 'types'
