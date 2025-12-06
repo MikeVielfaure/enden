@@ -1,0 +1,32 @@
+2025-12-05 21:06:11 | INFO | model_worker | args: Namespace(host='0.0.0.0', port=40000, worker_address='http://localhost:40000', controller_address='http://localhost:10000', model_path='liuhaotian/llava-v1.5-13b', model_base=None, model_name=None, device='cuda', multi_modal=False, limit_model_concurrency=5, stream_interval=1, no_register=False, load_8bit=False, load_4bit=True, use_flash_attn=False)
+2025-12-05 21:06:11 | INFO | model_worker | Loading the model llava-v1.5-13b on worker 9c356f ...
+2025-12-05 21:06:11 | ERROR | stderr | /home/vielfaurem/.cache/pypoetry/virtualenvs/backend-eCpSIB_4-py3.11/lib/python3.11/site-packages/huggingface_hub/file_download.py:942: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+2025-12-05 21:06:11 | ERROR | stderr |   warnings.warn(
+2025-12-05 21:06:11 | ERROR | stderr | tokenizer_config.json:   0%|                                                                                                           | 0.00/749 [00:00<?, ?B/s]
+2025-12-05 21:06:11 | ERROR | stderr | tokenizer_config.json: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████| 749/749 [00:00<00:00, 4.20MB/s]
+2025-12-05 21:06:11 | ERROR | stderr | 
+2025-12-05 21:06:12 | ERROR | stderr | tokenizer.model:   0%|                                                                                                                | 0.00/500k [00:00<?, ?B/s]
+2025-12-05 21:06:13 | ERROR | stderr | tokenizer.model: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 500k/500k [00:01<00:00, 337kB/s]
+2025-12-05 21:06:13 | ERROR | stderr | tokenizer.model: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 500k/500k [00:01<00:00, 337kB/s]
+2025-12-05 21:06:13 | ERROR | stderr | 
+2025-12-05 21:06:14 | ERROR | stderr | special_tokens_map.json:   0%|                                                                                                         | 0.00/438 [00:00<?, ?B/s]
+2025-12-05 21:06:14 | ERROR | stderr | special_tokens_map.json: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 438/438 [00:00<00:00, 1.45MB/s]
+2025-12-05 21:06:14 | ERROR | stderr | 
+2025-12-05 21:06:14 | ERROR | stderr | config.json: 0.00B [00:00, ?B/s]
+2025-12-05 21:06:14 | ERROR | stderr | config.json: 1.16kB [00:00, 2.59MB/s]
+2025-12-05 21:06:14 | ERROR | stderr | 
+2025-12-05 21:06:14 | ERROR | stderr | Traceback (most recent call last):
+2025-12-05 21:06:14 | ERROR | stderr |   File "<frozen runpy>", line 198, in _run_module_as_main
+2025-12-05 21:06:14 | ERROR | stderr |   File "<frozen runpy>", line 88, in _run_code
+2025-12-05 21:06:14 | ERROR | stderr |   File "/home/vielfaurem/mike-project/enden/backend/LLaVA/llava/serve/model_worker.py", line 277, in <module>
+2025-12-05 21:06:14 | ERROR | stderr |     worker = ModelWorker(args.controller_address,
+2025-12-05 21:06:14 | ERROR | stderr |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-05 21:06:14 | ERROR | stderr |   File "/home/vielfaurem/mike-project/enden/backend/LLaVA/llava/serve/model_worker.py", line 65, in __init__
+2025-12-05 21:06:14 | ERROR | stderr |     self.tokenizer, self.model, self.image_processor, self.context_len = load_pretrained_model(
+2025-12-05 21:06:14 | ERROR | stderr |                                                                          ^^^^^^^^^^^^^^^^^^^^^^
+2025-12-05 21:06:14 | ERROR | stderr |   File "/home/vielfaurem/mike-project/enden/backend/LLaVA/llava/model/builder.py", line 117, in load_pretrained_model
+2025-12-05 21:06:14 | ERROR | stderr |     model = LlavaLlamaForCausalLM.from_pretrained(
+2025-12-05 21:06:14 | ERROR | stderr |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-05 21:06:14 | ERROR | stderr |   File "/home/vielfaurem/.cache/pypoetry/virtualenvs/backend-eCpSIB_4-py3.11/lib/python3.11/site-packages/transformers/modeling_utils.py", line 3030, in from_pretrained
+2025-12-05 21:06:14 | ERROR | stderr |     raise RuntimeError("No GPU found. A GPU is needed for quantization.")
+2025-12-05 21:06:14 | ERROR | stderr | RuntimeError: No GPU found. A GPU is needed for quantization.

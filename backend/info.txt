@@ -1,0 +1,78 @@
+poetry init --no-interaction
+poetry add fastapi uvicorn sqlalchemy asyncpg alembic pydantic pydantic-settings
+docker volume ls
+docker volume rm enden_pgdata
+docker volume rm database_pgdata
+
+psql -h postgres_db -U mike -d test
+
+poetry run python -m app.core.__init__
+
+poetry run alembic revision --autogenerate -m "create users table"
+poetry run alembic upgrade head
+
+docker exec -t postgres pg_dump -U mike -d test > backup.sql
+
+psql -h localhost -U mike -d test -p 5433
+
+\d users
+\dt
+
+alembic downgrade base
+
+docker-compose up --build -d
+
+
+// pour les fixtures voici un exemple 
+poetry run python3 -m app.fixtures.users
+
+// fair un dump 
+docker exec -t postgres_db pg_dump -U mike -d test > backup.sql
+
+// restaure le dump
+psql -U mike -d test_new -f backup.sql
+
+# Structure uniquement
+docker exec -i postgres_db pg_dump -U mike -d test --schema-only > backup_schema.sql
+
+# Données uniquement
+docker exec -i postgres_db pg_dump -U mike -d test --data-only > backup_data.sql
+
+
+// installer despot git llava
+cd LLaVa 
+pip install -e .
+
+
+// suprimmer les caches de l'ia
+rm -rf ~/.cache/huggingface/hub/models--liuhaotian--llava-v1.5-13b
+// ou tout le cache 
+rm -rf ~/.cache/huggingface/hub
+
+// lancer le model sans controller
+python -m llava.serve.model_worker \
+    --host 0.0.0.0 \
+    --port 40000 \
+    --worker http://localhost:40000 \
+    --model-path liuhaotian/llava-v1.5-7b
+
+// lancer le model avec un controller
+python -m llava.serve.model_worker \
+    --host 0.0.0.0 \
+    --controller http://localhost:10000 \
+    --port 40000 \
+    --worker http://localhost:40000 \
+    --model-path liuhaotian/llava-v1.5-13b
+
+// le cache sur un autre repertoire 
+python -m llava.serve.model_worker \
+    --host 0.0.0.0 \
+    --port 40000 \
+    --worker http://localhost:40000 \
+    --model-path liuhaotian/llava-v1.5-13b \
+    --offload-folder ~/llava_offload
+
+// definir le lieu du cache
+mkdir -p /mnt/d/huggingface_cache
+export HF_HOME=/mnt/d/huggingface_cache
+echo $HF_HOME

@@ -1,0 +1,15 @@
+docker-compose down
+docker volume ls
+docker volume rm database_pgdata
+ docker-compose up --build -d
+ docker exec -it postgres_db psql -U mike -d test
+ docker network create backend_network
+ docker network ls
+
+
+
+ // creer nouveau users
+ test=# CREATE USER mike_test WITH PASSWORD 'test';
+CREATE ROLE
+test=# ALTER USER mike_test WITH SUPERUSER;
+ALTER ROLE

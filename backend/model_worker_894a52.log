@@ -1,0 +1,5 @@
+2025-12-05 21:58:17 | ERROR | stderr | usage: model_worker.py [-h] [--host HOST] [--port PORT] [--worker-address WORKER_ADDRESS] [--controller-address CONTROLLER_ADDRESS] [--model-path MODEL_PATH]
+2025-12-05 21:58:17 | ERROR | stderr |                        [--model-base MODEL_BASE] [--model-name MODEL_NAME] [--device DEVICE] [--multi-modal]
+2025-12-05 21:58:17 | ERROR | stderr |                        [--limit-model-concurrency LIMIT_MODEL_CONCURRENCY] [--stream-interval STREAM_INTERVAL] [--no-register] [--load-8bit] [--load-4bit]
+2025-12-05 21:58:17 | ERROR | stderr |                        [--use-flash-attn]
+2025-12-05 21:58:17 | ERROR | stderr | model_worker.py: error: unrecognized arguments: --offload-folder D:\\llava_offload

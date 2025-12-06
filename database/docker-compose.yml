@@ -1,0 +1,22 @@
+
+
+services:
+  postgres_db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: unless-stopped
+    env_file:
+      - .env  # Contient les variables d'environnement pour la DB
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - backend_network  # Utilisation d'un réseau Docker externe
+
+volumes:
+  pgdata:
+
+networks:
+  backend_network:
+    driver: bridge  # Création d'un réseau Docker nommé 'backend_network'
