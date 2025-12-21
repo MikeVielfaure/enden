@@ -1,2 +1,4 @@
+docker network create backend_network (si network n'existe pas)
 docker-compose up --build -d
+poetry install
 

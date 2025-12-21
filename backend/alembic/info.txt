@@ -1,0 +1,4 @@
+rm -rf backend/alembic/versions/* (pour repartir de zero après un effacement de tout docker)
+poetry run alembic revision --autogenerate -m "initial schema"
+Vérifie le fichier généré (important).
+poetry run alembic upgrade head

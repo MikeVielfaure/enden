@@ -8,11 +8,11 @@
     </NuxtLayout>
      -->
 
-     <!-- <login-form></login-form> -->
+     <login-form></login-form>
 
 
-  <event-form></event-form>
-  </div>
+  <!-- <event-form></event-form> -->
+  </div>t
 </template>
 
 <script>

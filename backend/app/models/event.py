@@ -24,5 +24,11 @@ class Event(Base):
     sub_type = relationship(SubType)  # Relation SQLAlchemy
 
 
+    dates = relationship(
+            "EventDate",
+            back_populates="event",
+            cascade="all, delete-orphan"
+        )
+
     def __repr__(self):
         return f"<Event(id={self.id}, name='{self.name}', type_id={self.sub_type_id}, date_debut={self.date_debut})>"
